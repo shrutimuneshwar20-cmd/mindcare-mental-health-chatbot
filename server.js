@@ -22,7 +22,12 @@ app.use(cors());
 app.use(express.json({ limit: '50kb' }));
 
 // Serve static frontend assets from public/ directory
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static assets from public/ folder or root
+const staticDir = fs.existsSync(path.join(__dirname, 'public', 'index.html'))
+  ? path.join(__dirname, 'public')
+  : __dirname;
+
+app.use(express.static(staticDir));
 
 // Rate Limiting: 60 requests per 15 minutes per IP
 const apiLimiter = rateLimit({
@@ -364,8 +369,8 @@ app.post('/api/chat', async (req, res) => {
 });
 
 // Fallback for unmatched API routes
-app.all('/api/*', (req, res) => {
-  res.status(404).json({ success: false, reply: "API endpoint not found." });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(staticDir, 'index.html'));
 });
 
 // Route any other page request to index.html for smooth single-page UX
