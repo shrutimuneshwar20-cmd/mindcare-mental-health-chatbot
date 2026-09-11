@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindCare AI – Mental Health Awareness & Emotional Support Chatbot</title>
+  <meta name="description" content="MindCare AI is a supportive mental health awareness chatbot powered by Google Gemini, providing empathetic listening, healthy coping strategies, and crisis support.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ================================================================= -->
+  <!-- TOP EMERGENCY BANNER                                              -->
+  <!-- ================================================================= -->
+  <div class="crisis-quick-banner" id="topEmergencyBanner">
+    <div class="container banner-content">
+      <span><i class="fa-solid fa-triangle-exclamation"></i> <strong>In immediate distress?</strong> You don't have to face this alone. Call <strong>112</strong> (India) or <strong>988</strong> (US/Canada) or visit our</span>
+      <a href="#emergency" class="banner-link">Emergency Support <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- NAVIGATION BAR                                                    -->
+  <!-- ================================================================= -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="nav-brand">
+        <div class="logo-icon"><i class="fa-solid fa-leaf"></i></div>
+        <div class="logo-text">
+          <span class="brand-name">MindCare<span class="brand-ai">AI</span></span>
+          <span class="brand-sub">Mental Wellness</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="#chat" class="nav-link"><i class="fa-solid fa-comments"></i> Chat</a>
+        <a href="#dashboard" class="nav-link"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+        <a href="#wellness" class="nav-link"><i class="fa-solid fa-heart-pulse"></i> Mental Wellness</a>
+        <a href="#about" class="nav-link"><i class="fa-solid fa-circle-info"></i> About</a>
+        <a href="#emergency" class="nav-link emergency-nav-btn"><i class="fa-solid fa-phone-volume"></i> Emergency Help</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================================================================= -->
+    <!-- 1. HERO SECTION                                                   -->
+    <!-- ================================================================= -->
+    <section class="hero-section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="badge-pill">
+            <span class="pulse-dot"></span>
+            <span>Compassionate • Non-judgmental • 24/7 Support</span>
+          </div>
+          <h1 class="hero-title">Your Mental Health Matters.</h1>
+          <p class="hero-tagline">"A safe space to talk, understand, and care for your mind."</p>
+          <p class="hero-description">
+            Talk about what you're going through. MindCare provides supportive, empathetic guidance powered by Google Gemini to help you process feelings of stress, anxiety, academic pressure, loneliness, or low mood.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#chat" class="btn btn-primary btn-lg">
+              <i class="fa-solid fa-comment-dots"></i> Start Chatting
+            </a>
+            <a href="#breathingTool" class="btn btn-outline btn-lg">
+              <i class="fa-solid fa-wind"></i> Relax with Breathing
+            </a>
+          </div>
+
+          <div class="hero-highlights">
+            <div class="highlight-item">
+              <i class="fa-solid fa-shield-heart"></i>
+              <span>Confidential & Private</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-ban"></i>
+              <span>No Medical Diagnosis</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-hands-holding-child"></i>
+              <span>Safe Coping Tools</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-graphic">
+          <div class="calm-card-illustration">
+            <div class="calm-circle-glow"></div>
+            <div class="floating-badge badge-top">
+              <i class="fa-solid fa-sparkles text-accent"></i> "Take a slow breath in..."
+            </div>
+            <div class="floating-badge badge-mid">
+              <i class="fa-solid fa-heart text-danger"></i> "You are not alone."
+            </div>
+            <div class="floating-badge badge-bottom">
+              <i class="fa-solid fa-lightbulb text-warning"></i> "One small step at a time."
+            </div>
+            <div class="illustration-core">
+              <i class="fa-solid fa-brain brain-hero-icon"></i>
+              <div class="orbit-particle p1"></div>
+              <div class="orbit-particle p2"></div>
+              <div class="orbit-particle p3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 2. DAILY WELLNESS DASHBOARD                                       -->
+    <!-- ================================================================= -->
+    <section class="dashboard-section" id="dashboard">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-badge">Daily Check-In</span>
+          <h2 class="section-title">Your Wellness Dashboard</h2>
+          <p class="section-subtitle">A quick check-in to monitor how you feel, reflect, and access soothing exercises.</p>
+        </div>
+
+        <div class="dashboard-grid">
+          <!-- Mood Tracker Card -->
+          <div class="dash-card mood-tracker-card">
+            <div class="dash-card-header">
+              <h3><i class="fa-solid fa-smile-beam"></i> How are you feeling today?</h3>
+              <span class="date-tag" id="currentDateDisplay">Today</span>
+            </div>
+            <p class="dash-card-desc">Selecting your mood helps you practice self-awareness without judgment.</p>
+
+            <div class="mood-selector" id="moodSelector">
+              <button class="mood-btn" data-mood="Happy" data-emoji="😊" title="Happy">
+                <span class="emoji">😊</span>
+                <span class="mood-label">Happy</span>
+              </button>
+              <button class="mood-btn" data-mood="Good" data-emoji="🙂" title="Good">
+                <span class="emoji">🙂</span>
+                <span class="mood-label">Good</span>
+              </button>
+              <button class="mood-btn" data-mood="Okay" data-emoji="😐" title="Okay">
+                <span class="emoji">😐</span>
+                <span class="mood-label">Okay</span>
+              </button>
+              <button class="mood-btn" data-mood="Sad" data-emoji="😔" title="Sad">
+                <span class="emoji">😔</span>
+                <span class="mood-label">Sad</span>
+              </button>
+              <button class="mood-btn" data-mood="Anxious" data-emoji="😟" title="Anxious">
+                <span class="emoji">😟</span>
+                <span class="mood-label">Anxious</span>
+              </button>
+              <button class="mood-btn" data-mood="Angry" data-emoji="😡" title="Angry">
+                <span class="emoji">😡</span>
+                <span class="mood-label">Angry</span>
+              </button>
+              <button class="mood-btn" data-mood="Tired" data-emoji="😴" title="Tired">
+                <span class="emoji">😴</span>
+                <span class="mood-label">Tired</span>
+              </button>
+            </div>
+
+            <div class="mood-feedback-banner" id="moodFeedback">
+              <span id="moodFeedbackText">Tap an emoji above to record your current emotional state.</span>
+            </div>
+
+            <!-- Mood History & Simple Chart -->
+            <div class="mood-history-box">
+              <div class="history-title-row">
+                <h4><i class="fa-solid fa-chart-simple"></i> Recent Mood Log</h4>
+                <button class="btn-text-sm" id="clearMoodBtn" title="Clear recorded mood log">Reset</button>
+              </div>
+              <div class="mood-chips-container" id="moodHistoryList">
+                <span class="empty-history-text">No moods recorded yet today.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Daily Rotating Wellness Tip -->
+          <div class="dash-card daily-tip-card">
+            <div class="dash-card-header">
+              <h3><i class="fa-solid fa-wand-magic-sparkles text-accent"></i> Daily Wellness Tip</h3>
+              <button class="btn-icon" id="nextTipBtn" title="Show another tip">
+                <i class="fa-solid fa-arrows-rotate"></i>
+              </button>
+            </div>
+            <div class="tip-category-tag" id="tipCategory">Hydration & Calm</div>
+            <p class="tip-body-text" id="tipText">
+              "Pause for a moment and drink a cold glass of water slowly. Physical sensations help ground your nervous system during racing thoughts."
+            </p>
+            <div class="tip-footer">
+              <span class="tip-indicator" id="tipIndexIndicator">Tip 1 of 8</span>
+              <button class="btn btn-sm btn-outline" id="nextTipBtnSecondary">Next Tip <i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+
+            <!-- Quick Shortcuts inside dashboard -->
+            <div class="dashboard-quick-shortcuts">
+              <h4>Quick Jump</h4>
+              <div class="shortcut-pills">
+                <a href="#chat" class="shortcut-pill"><i class="fa-solid fa-comments"></i> Talk to MindCare</a>
+                <a href="#breathingTool" class="shortcut-pill"><i class="fa-solid fa-wind"></i> 4-4-4 Breathing</a>
+                <a href="#groundingTool" class="shortcut-pill"><i class="fa-solid fa-hand-holding-heart"></i> 5-4-3-2-1 Grounding</a>
+                <a href="#journalTool" class="shortcut-pill"><i class="fa-solid fa-book-journal-whills"></i> Reflection Journal</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 3. CHATBOT INTERFACE SECTION                                      -->
+    <!-- ================================================================= -->
+    <section class="chat-section" id="chat">
+      <div class="container">
+        <div class="chat-wrapper">
+          <!-- Chat Window Header -->
+          <div class="chat-header">
+            <div class="chat-header-identity">
+              <div class="chat-avatar-wrapper">
+                <div class="chat-ai-avatar">
+                  <i class="fa-solid fa-leaf"></i>
+                </div>
+                <span class="online-status-dot" title="Online and ready to listen"></span>
+              </div>
+              <div class="chat-header-details">
+                <h3 class="chat-title">MindCare AI</h3>
+                <span class="chat-subtitle"><i class="fa-solid fa-circle text-success status-micro"></i> Online • Empathic Listening Assistant</span>
+              </div>
+            </div>
+
+            <div class="chat-header-controls">
+              <!-- Country selector for crisis context -->
+              <div class="country-selector-wrap" title="Select your country for emergency helpline matching">
+                <label for="countrySelect" class="sr-only">Country</label>
+                <i class="fa-solid fa-globe globe-icon"></i>
+                <select id="countrySelect" class="country-select">
+                  <option value="IN" selected>🇮🇳 India</option>
+                  <option value="US">🇺🇸 United States</option>
+                  <option value="UK">🇬🇧 United Kingdom</option>
+                  <option value="CA">🇨🇦 Canada</option>
+                  <option value="AU">🇦🇺 Australia</option>
+                  <option value="INTL">🌐 International</option>
+                </select>
+              </div>
+
+              <button class="btn btn-outline btn-sm" id="newChatBtn" title="Start a fresh conversation">
+                <i class="fa-solid fa-plus"></i> <span class="btn-text-desktop">New Chat</span>
+              </button>
+              <button class="btn btn-outline btn-sm" id="clearChatBtn" title="Clear message history">
+                <i class="fa-solid fa-trash-can"></i> <span class="btn-text-desktop">Clear</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Crisis Alert Bar inside chat -->
+          <div class="chat-crisis-alert hidden" id="chatCrisisAlert">
+            <div class="crisis-alert-icon"><i class="fa-solid fa-shield-heart"></i></div>
+            <div class="crisis-alert-text">
+              <strong>Need Immediate Help?</strong> If you are in crisis, please know there is support. 
+              <span id="crisisHotlineSnippet">Call <strong>112 / 14416</strong> (India)</span> or 
+              <a href="#emergency" class="text-underline">view verified crisis hotlines</a>.
+            </div>
+            <button class="crisis-alert-dismiss" id="dismissCrisisAlert" aria-label="Dismiss">&times;</button>
+          </div>
+
+          <!-- Messages Container -->
+          <div class="chat-messages" id="chatMessages" role="log" aria-live="polite">
+            <!-- Initial Welcome Message from MindCare AI -->
+            <div class="message-row bot-row">
+              <div class="msg-avatar bot-avatar"><i class="fa-solid fa-leaf"></i></div>
+              <div class="msg-bubble bot-bubble">
+                <div class="msg-author-name">MindCare AI</div>
+                <div class="msg-content">
+                  Hi! I'm <strong>MindCare AI</strong>. I'm here to listen, provide supportive guidance, and explore healthy coping strategies with you.
+                  <br><br>
+                  Whether you're carrying exam stress, feeling lonely, overwhelmed, or just need a safe space to vent, I'm here for you. What would you like to talk about today?
+                </div>
+                <div class="msg-footer">
+                  <span class="msg-time" id="welcomeTime">Just now</span>
+                  <button class="msg-action-btn copy-btn" title="Copy response" onclick="copyMessageText(this)">
+                    <i class="fa-regular fa-copy"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Typing Indicator -->
+          <div class="typing-indicator-row hidden" id="typingIndicator">
+            <div class="msg-avatar bot-avatar"><i class="fa-solid fa-leaf"></i></div>
+            <div class="typing-bubble">
+              <span class="typing-text">MindCare AI is listening...</span>
+              <div class="typing-dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Suggested Quick Prompts -->
+          <div class="quick-prompts-bar">
+            <span class="quick-prompts-label"><i class="fa-regular fa-lightbulb"></i> Quick Starters:</span>
+            <div class="quick-chips-scroll">
+              <button class="prompt-chip" data-text="I'm feeling stressed">"I'm feeling stressed"</button>
+              <button class="prompt-chip" data-text="I feel anxious">"I feel anxious"</button>
+              <button class="prompt-chip" data-text="I'm having trouble sleeping">"I'm having trouble sleeping"</button>
+              <button class="prompt-chip" data-text="I feel lonely">"I feel lonely"</button>
+              <button class="prompt-chip" data-text="I'm worried about exams">"I'm worried about exams"</button>
+              <button class="prompt-chip" data-text="How can I stop overthinking?">"How can I stop overthinking?"</button>
+              <button class="prompt-chip" data-text="I need someone to talk to">"I need someone to talk to"</button>
+            </div>
+          </div>
+
+          <!-- Input Area -->
+          <form class="chat-input-area" id="chatForm">
+            <div class="input-container">
+              <textarea 
+                id="chatInput" 
+                rows="1" 
+                placeholder="Share what is on your mind... (Press Enter to send, Shift+Enter for new line)" 
+                maxlength="1500" 
+                aria-label="Message input"></textarea>
+              <div class="input-indicators">
+                <span class="char-counter" id="charCounter">0 / 1500</span>
+              </div>
+            </div>
+            <button type="submit" class="send-btn" id="sendBtn" aria-label="Send message" title="Send message">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+
+          <div class="chat-bottom-disclaimer">
+            <i class="fa-solid fa-circle-exclamation"></i> MindCare AI offers general emotional support and wellness guidance. It cannot provide medical diagnoses, prescriptions, or emergency services.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 4. MENTAL WELLNESS TOOLS                                          -->
+    <!-- ================================================================= -->
+    <section class="wellness-section" id="wellness">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="sub-badge">Interactive Exercises</span>
+          <h2 class="section-title">Mental Wellness Tools</h2>
+          <p class="section-subtitle">Scientifically validated self-regulation techniques to help calm your nervous system and organize your thoughts.</p>
+        </div>
+
+        <!-- TOOL 1: INTERACTIVE ANIMATED BREATHING EXERCISE -->
+        <div class="tool-card breathing-card" id="breathingTool">
+          <div class="tool-header">
+            <div class="tool-title-wrap">
+              <div class="tool-icon bg-teal"><i class="fa-solid fa-wind"></i></div>
+              <div>
+                <h3>Box & Relaxation Breathing Pacer</h3>
+                <p>Gentle rhythmic breathing stimulates your parasympathetic nervous system to slow racing thoughts.</p>
+              </div>
+            </div>
+            
+            <div class="breathing-mode-selector">
+              <label for="breathMode">Technique:</label>
+              <select id="breathMode" class="form-select-sm">
+                <option value="box">Box Breathing (4s In • 4s Hold • 4s Out • 4s Rest)</option>
+                <option value="relax">Calming 4-7-8 (4s In • 7s Hold • 8s Out)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="breathing-arena">
+            <div class="breathing-circle-outer" id="breathCircleOuter">
+              <div class="breathing-circle-core" id="breathCircleCore">
+                <span class="breath-instruction" id="breathInstruction">Ready</span>
+                <span class="breath-countdown" id="breathCountdown">--</span>
+              </div>
+            </div>
+
+            <div class="breathing-stats">
+              <div class="stat-box">
+                <span class="stat-value" id="breathCycles">0</span>
+                <span class="stat-label">Cycles Completed</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-value" id="breathTimer">00:00</span>
+                <span class="stat-label">Session Duration</span>
+              </div>
+            </div>
+
+            <div class="breathing-controls">
+              <button class="btn btn-primary" id="startBreathBtn"><i class="fa-solid fa-play"></i> Start</button>
+              <button class="btn btn-outline" id="pauseBreathBtn" disabled><i class="fa-solid fa-pause"></i> Pause</button>
+              <button class="btn btn-outline" id="resetBreathBtn"><i class="fa-solid fa-rotate-left"></i> Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOOL 2: 5-4-3-2-1 GROUNDING EXERCISE WIZARD -->
+        <div class="tool-card grounding-card" id="groundingTool">
+          <div class="tool-header">
+            <div class="tool-title-wrap">
+              <div class="tool-icon bg-indigo"><i class="fa-solid fa-hand-holding-heart"></i></div>
+              <div>
+                <h3>5-4-3-2-1 Sensory Grounding Technique</h3>
+                <p>When panic or overthinking strikes, anchor yourself back to the present moment through your five senses.</p>
+              </div>
+            </div>
+            <div class="grounding-step-counter" id="groundingStepPill">Step 1 of 5</div>
+          </div>
+
+          <div class="grounding-wizard-body" id="groundingWizardBody">
+            <!-- Step content dynamically handled in script.js -->
+            <div class="grounding-step-display" id="groundingStepDisplay">
+              <div class="sense-icon-wrap" id="senseIconWrap">
+                <i class="fa-solid fa-eye"></i>
+              </div>
+              <h4 class="sense-title" id="senseTitle">Acknowledge 5 things you can SEE</h4>
+              <p class="sense-prompt" id="sensePrompt">Look around you right now. Spot 5 distinct objects, patterns, or colors in your room or environment.</p>
+
+              <div class="grounding-inputs-list" id="groundingInputs">
+                <!-- Checkable or writable items -->
+              </div>
+            </div>
+
+            <div class="grounding-nav-actions">
+              <button class="btn btn-outline" id="prevGroundingBtn" disabled><i class="fa-solid fa-arrow-left"></i> Previous</button>
+              <button class="btn btn-primary" id="nextGroundingBtn">Next Step <i class="fa-solid fa-arrow-right"></i></button>
+              <button class="btn btn-outline btn-sm hidden" id="resetGroundingBtn"><i class="fa-solid fa-rotate-left"></i> Start Over</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOOL 3: PRIVATE REFLECTION JOURNAL -->
+        <div class="tool-card journal-card" id="journalTool">
+          <div class="tool-header">
+            <div class="tool-title-wrap">
+              <div class="tool-icon bg-amber"><i class="fa-solid fa-book-journal-whills"></i></div>
+              <div>
+                <h3>Private Mind Journal</h3>
+                <p>Writing down uncensored thoughts releases mental clutter and helps you process complicated emotions.</p>
+              </div>
+            </div>
+            <span class="storage-tag"><i class="fa-solid fa-lock"></i> Saved Locally in Browser</span>
+          </div>
+
+          <div class="journal-layout">
+            <!-- Journal Write Form -->
+            <form class="journal-form" id="journalForm">
+              <div class="form-group">
+                <label for="journalTitle">Entry Title / Focus:</label>
+                <input type="text" id="journalTitle" placeholder="e.g., Thoughts after physics exam..." required>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group flex-1">
+                  <label for="journalMoodTag">Mood Tag:</label>
+                  <select id="journalMoodTag" class="form-select">
+                    <option value="Reflective">🤔 Reflective</option>
+                    <option value="Relieved">😌 Relieved</option>
+                    <option value="Overwhelmed">😣 Overwhelmed</option>
+                    <option value="Grateful">🙏 Grateful</option>
+                    <option value="Anxious">😟 Anxious</option>
+                    <option value="Calm">🌿 Calm</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="journalText">Your Thoughts:</label>
+                <textarea id="journalText" rows="4" placeholder="What happened today? How does your body feel? What is one thing you can let go of?" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Entry</button>
+            </form>
+
+            <!-- Previous Entries List -->
+            <div class="journal-history-panel">
+              <div class="journal-history-header">
+                <h4>Past Reflections</h4>
+                <span class="journal-count-badge" id="journalCountBadge">0 entries</span>
+              </div>
+              <div class="journal-list" id="journalList">
+                <div class="empty-journal-notice">
+                  <i class="fa-regular fa-note-sticky"></i>
+                  <p>Your journal is currently empty. Write your first reflection above!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="privacy-note">
+            <i class="fa-solid fa-shield-halved"></i> <strong>Privacy Guarantee:</strong> All journal entries are stored strictly inside your own browser's localStorage. No server or third-party ever sees your private journal entries.
+          </div>
+        </div>
+
+        <!-- TOOL 4: SELF-CARE RECOMMENDATIONS GRID -->
+        <div class="self-care-recommendations">
+          <h3 class="subsection-title text-center"><i class="fa-solid fa-seedling text-accent"></i> Evidence-Based Self-Care Recommendations</h3>
+          <div class="cards-grid">
+            <!-- Stress Management -->
+            <div class="info-card">
+              <div class="card-icon-header"><i class="fa-solid fa-arrows-down-to-people text-teal"></i></div>
+              <h4>Stress Management</h4>
+              <ul class="clean-list">
+                <li><i class="fa-solid fa-check"></i> <strong>Deep breathing:</strong> Inhale for 4 seconds, exhale for 6 seconds to trigger parasympathetic rest.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Short breaks:</strong> Take 5-minute pauses away from your desk every hour.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Task chunking:</strong> Prioritize 1 or 2 essential tasks instead of an impossible list.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Movement:</strong> A gentle 10-minute walk significantly reduces cortisol.</li>
+              </ul>
+            </div>
+
+            <!-- Anxiety Relief -->
+            <div class="info-card">
+              <div class="card-icon-header"><i class="fa-solid fa-cloud-rain text-indigo"></i></div>
+              <h4>Managing Anxiety</h4>
+              <ul class="clean-list">
+                <li><i class="fa-solid fa-check"></i> <strong>Grounding:</strong> Touch physical surfaces (table, clothes, water) to exit mental spirals.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Moderate caffeine:</strong> High coffee or energy drink intake mimics panic sensations.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Verbalize worries:</strong> Talk to someone you trust; voice-sharing reduces threat perception.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Accept the wave:</strong> Anxiety peaks and naturally subsides within 15–20 minutes.</li>
+              </ul>
+            </div>
+
+            <!-- Better Sleep -->
+            <div class="info-card">
+              <div class="card-icon-header"><i class="fa-solid fa-moon text-accent"></i></div>
+              <h4>Rest & Sleep Hygiene</h4>
+              <ul class="clean-list">
+                <li><i class="fa-solid fa-check"></i> <strong>Screen curfew:</strong> Disconnect from phones/screens 45 minutes prior to sleep.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Consistent schedule:</strong> Wake up and sleep at consistent times daily.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Dark & cool space:</strong> Keep the room cooler; lower temperature facilitates melatonin release.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Worry dump:</strong> Write next day's to-dos in your journal so your brain rests.</li>
+              </ul>
+            </div>
+
+            <!-- Exam & Academic Pressure -->
+            <div class="info-card">
+              <div class="card-icon-header"><i class="fa-solid fa-graduation-cap text-amber"></i></div>
+              <h4>Exam & Academic Pressure</h4>
+              <ul class="clean-list">
+                <li><i class="fa-solid fa-check"></i> <strong>Pomodoro Study:</strong> Study for 25 minutes, followed by 5 minutes of genuine relaxation.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Avoid all-nighters:</strong> Sleep deprivation impairs memory consolidation and exam recall.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Realistic pacing:</strong> Focus on understanding key concepts rather than memorizing blindly.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Perspective:</strong> Your exams measure preparation for a test, never your human dignity.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 5. ABOUT & ETHICAL PRINCIPLES SECTION                             -->
+    <!-- ================================================================= -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="about-card">
+          <div class="about-header">
+            <div class="about-badge"><i class="fa-solid fa-shield-heart"></i> Project Mission</div>
+            <h2>About MindCare AI</h2>
+            <p class="about-intro">
+              <strong>MindCare AI</strong> is an educational mental health awareness chatbot designed to provide supportive conversations, wellness information, and simple self-care techniques.
+            </p>
+          </div>
+
+          <div class="principles-grid">
+            <div class="principle-item">
+              <div class="principle-icon bg-danger-light text-danger"><i class="fa-solid fa-ban"></i></div>
+              <h4>Never Diagnoses</h4>
+              <p>MindCare AI never provides clinical diagnoses for depression, bipolar disorder, anxiety disorders, or any medical condition. Only licensed medical professionals can evaluate health.</p>
+            </div>
+
+            <div class="principle-item">
+              <div class="principle-icon bg-warning-light text-warning"><i class="fa-solid fa-prescription-bottle-medical"></i></div>
+              <h4>No Prescriptions</h4>
+              <p>MindCare AI never suggests medications, dosages, or adjustments. Any pharmaceutical inquiries should always be directed to a registered psychiatrist or physician.</p>
+            </div>
+
+            <div class="principle-item">
+              <div class="principle-icon bg-teal-light text-teal"><i class="fa-solid fa-user-doctor"></i></div>
+              <h4>Supports Professional Care</h4>
+              <p>MindCare actively encourages reaching out to university counselors, psychologists, therapists, and doctors whenever distress feels prolonged or unmanageable.</p>
+            </div>
+
+            <div class="principle-item">
+              <div class="principle-icon bg-accent-light text-accent"><i class="fa-solid fa-life-ring"></i></div>
+              <h4>Crisis Awareness</h4>
+              <p>Equipped with proactive safety triggers to immediately surface verified regional emergency helplines if danger or self-harm is detected.</p>
+            </div>
+          </div>
+
+          <!-- Strict Disclaimer Box -->
+          <div class="disclaimer-alert-box">
+            <div class="alert-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <div class="alert-content">
+              <h4>Medical & Psychological Disclaimer</h4>
+              <p>
+                This application provides general mental health awareness information and is <strong>not a substitute for professional medical or psychological care</strong>, clinical diagnosis, or emergency intervention. If you are experiencing intense distress, thoughts of self-harm, or are in immediate physical danger, please immediately contact emergency services or a verified crisis helpline.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- 6. EMERGENCY HELP SECTION                                         -->
+    <!-- ================================================================= -->
+    <section class="emergency-section" id="emergency">
+      <div class="container">
+        <div class="emergency-card-wrapper">
+          <div class="emergency-hero-header text-center">
+            <div class="emergency-icon-glow"><i class="fa-solid fa-phone-volume"></i></div>
+            <h2 class="emergency-headline">Immediate Emergency & Crisis Support</h2>
+            <p class="emergency-subheadline">
+              If you or someone you know is in immediate danger or experiencing thoughts of harming themselves, please reach out to one of these free, confidential 24/7 resources right now. You don't have to carry this alone.
+            </p>
+          </div>
+
+          <div class="emergency-contacts-grid">
+            <!-- India -->
+            <div class="crisis-box highlight-country">
+              <div class="crisis-box-header">
+                <span class="flag">🇮🇳</span>
+                <h4>India</h4>
+                <span class="badge-active">Primary</span>
+              </div>
+              <ul class="crisis-details">
+                <li><strong>National Emergency:</strong> <a href="tel:112" class="call-btn">112 <i class="fa-solid fa-phone"></i></a></li>
+                <li><strong>Tele-MANAS (24/7 Helpline):</strong> <a href="tel:14416" class="call-btn">14416 <i class="fa-solid fa-phone"></i></a></li>
+                <li><strong>KIRAN Mental Health:</strong> <a href="tel:18005990019" class="call-btn">1800-599-0019</a></li>
+                <li><strong>Vandrevala Foundation:</strong> <a href="tel:+919999666555">+91 9999 666 555</a></li>
+              </ul>
+            </div>
+
+            <!-- United States -->
+            <div class="crisis-box">
+              <div class="crisis-box-header">
+                <span class="flag">🇺🇸</span>
+                <h4>United States</h4>
+              </div>
+              <ul class="crisis-details">
+                <li><strong>Emergency Services:</strong> <a href="tel:911" class="call-btn">911</a></li>
+                <li><strong>Suicide & Crisis Lifeline:</strong> <a href="tel:988" class="call-btn">988 (Call/Text 24/7)</a></li>
+                <li><strong>Crisis Text Line:</strong> Text <strong>HOME</strong> to <strong>741741</strong></li>
+                <li><strong>Website:</strong> <a href="https://988lifeline.org" target="_blank" rel="noopener">988lifeline.org</a></li>
+              </ul>
+            </div>
+
+            <!-- United Kingdom -->
+            <div class="crisis-box">
+              <div class="crisis-box-header">
+                <span class="flag">🇬🇧</span>
+                <h4>United Kingdom</h4>
+              </div>
+              <ul class="crisis-details">
+                <li><strong>Emergency Services:</strong> <a href="tel:999" class="call-btn">999</a></li>
+                <li><strong>NHS Mental Health:</strong> <a href="tel:111" class="call-btn">111</a></li>
+                <li><strong>Samaritans Helpline:</strong> <a href="tel:116123" class="call-btn">116 123 (Free 24/7)</a></li>
+                <li><strong>Shout Text Line:</strong> Text <strong>SHOUT</strong> to <strong>85258</strong></li>
+              </ul>
+            </div>
+
+            <!-- Canada -->
+            <div class="crisis-box">
+              <div class="crisis-box-header">
+                <span class="flag">🇨🇦</span>
+                <h4>Canada</h4>
+              </div>
+              <ul class="crisis-details">
+                <li><strong>Emergency Services:</strong> <a href="tel:911" class="call-btn">911</a></li>
+                <li><strong>Suicide Crisis Helpline:</strong> <a href="tel:988" class="call-btn">988 (Call/Text 24/7)</a></li>
+                <li><strong>Youth Text Support:</strong> Text <strong>686868</strong></li>
+                <li><strong>Website:</strong> <a href="https://988.ca" target="_blank" rel="noopener">988.ca</a></li>
+              </ul>
+            </div>
+
+            <!-- Australia -->
+            <div class="crisis-box">
+              <div class="crisis-box-header">
+                <span class="flag">🇦🇺</span>
+                <h4>Australia</h4>
+              </div>
+              <ul class="crisis-details">
+                <li><strong>Emergency Services:</strong> <a href="tel:000" class="call-btn">000</a></li>
+                <li><strong>Lifeline Australia:</strong> <a href="tel:131114" class="call-btn">13 11 14 (24/7)</a></li>
+                <li><strong>Beyond Blue:</strong> <a href="tel:1300224636">1300 22 4636</a></li>
+                <li><strong>Lifeline Text:</strong> Text <strong>0477 13 11 14</strong></li>
+              </ul>
+            </div>
+
+            <!-- Worldwide -->
+            <div class="crisis-box">
+              <div class="crisis-box-header">
+                <span class="flag">🌐</span>
+                <h4>International</h4>
+              </div>
+              <ul class="crisis-details">
+                <li><strong>Global Crisis Directory:</strong> <a href="https://findahelpline.com" target="_blank" rel="noopener" class="call-btn">FindAHelpline.com</a></li>
+                <li><strong>Befrienders Worldwide:</strong> <a href="https://www.befrienders.org" target="_blank" rel="noopener">befrienders.org</a></li>
+                <li><strong>Action:</strong> Contact your closest hospital or university student emergency desk.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="emergency-trusted-advice">
+            <h4><i class="fa-solid fa-people-roof"></i> Other Steps You Can Take Right Now:</h4>
+            <div class="advice-pills-row">
+              <div class="advice-pill"><i class="fa-solid fa-user-group"></i> Call a trusted family member or close friend</div>
+              <div class="advice-pill"><i class="fa-solid fa-chalkboard-user"></i> Reach out to your campus counselor or teacher</div>
+              <div class="advice-pill"><i class="fa-solid fa-hospital"></i> Go to the nearest hospital emergency room</div>
+              <div class="advice-pill"><i class="fa-solid fa-shield-cat"></i> Stay in a safe space with people around you</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- FOOTER                                                            -->
+  <!-- ================================================================= -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand-col">
+        <div class="footer-logo">
+          <i class="fa-solid fa-leaf"></i>
+          <span>MindCare AI</span>
+        </div>
+        <p class="footer-desc">
+          A modern, empathetic mental health awareness web application designed for students and young adults. Supporting everyday emotional wellness with AI-driven empathy and mindfulness tools.
+        </p>
+        <p class="footer-copy">&copy; 2026 MindCare AI. Built with care for mental health awareness.</p>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#chat">Chat with MindCare AI</a></li>
+          <li><a href="#dashboard">Wellness Dashboard</a></li>
+          <li><a href="#wellness">Mental Wellness Tools</a></li>
+          <li><a href="#about">About & Principles</a></li>
+          <li><a href="#emergency">Emergency Help</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Interactive Tools</h4>
+        <ul>
+          <li><a href="#breathingTool">4-4-4 Breathing Pacer</a></li>
+          <li><a href="#groundingTool">5-4-3-2-1 Grounding</a></li>
+          <li><a href="#dashboard">Daily Mood Tracker</a></li>
+          <li><a href="#journalTool">Private Journal</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-disclaimer-col">
+        <h4>Non-Medical Disclaimer</h4>
+        <p>
+          MindCare AI is an informational and emotional awareness tool. It is not a clinical healthcare service, does not formulate diagnostic claims, and does not prescribe medicine. In emergencies, immediately call 112 or local emergency services.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- JavaScript Application Bundle -->
+  <script src="script.js"></script>
+</body>
+</html>
