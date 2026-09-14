@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { exec } from 'child_process';
 import rateLimit from 'express-rate-limit';
@@ -21,8 +22,7 @@ app.use(cors());
 // Parse JSON request bodies
 app.use(express.json({ limit: '50kb' }));
 
-// Serve static frontend assets from public/ directory
-// Serve static assets from public/ folder or root
+// Determine static directory (public/ folder or repository root)
 const staticDir = fs.existsSync(path.join(__dirname, 'public', 'index.html'))
   ? path.join(__dirname, 'public')
   : __dirname;
@@ -202,19 +202,17 @@ async function callGemini(message, conversationHistory = []) {
         }
       } catch (modelErr) {
         console.warn(`Model ${modelName} warning:`, modelErr.message);
-        // Continue to next model in list
       }
     }
   } catch (importErr) {
     console.warn("SDK load error:", importErr.message);
   }
 
-  // If all Gemini remote attempts hit network or quota limits, return supportive fallback
   console.log("Using supportive fallback for user message.");
   return generateLocalSupportiveFallback(message);
 }
 
-// Empathetic, dynamic fallback generator for initial setup before API key is provided
+// Empathetic fallback generator
 function generateLocalSupportiveFallback(userMessage) {
   const lower = userMessage.toLowerCase();
 
@@ -320,7 +318,6 @@ app.post('/api/chat', async (req, res) => {
   try {
     const { message, country = 'IN', history = [] } = req.body;
 
-    // Validate input
     if (!message || typeof message !== 'string' || !message.trim()) {
       return res.status(400).json({
         success: false,
@@ -369,13 +366,13 @@ app.post('/api/chat', async (req, res) => {
 });
 
 // Fallback for unmatched API routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(staticDir, 'index.html'));
+app.all('/api/*', (req, res) => {
+  res.status(404).json({ success: false, reply: "API endpoint not found." });
 });
 
 // Route any other page request to index.html for smooth single-page UX
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(staticDir, 'index.html'));
 });
 
 // Start Express Server with automatic port fallback
@@ -389,13 +386,10 @@ function startServer(portToUse) {
     console.log(`  💬 Chat API:         ${appUrl}/api/chat`);
     console.log(`==================================================================`);
 
-    // Automatically open browser window
     try {
       const openCmd = process.platform === 'win32' ? 'start' : process.platform === 'darwin' ? 'open' : 'xdg-open';
       exec(`${openCmd} ${appUrl}`);
-    } catch (openErr) {
-      // Ignore if browser launch fails silently
-    }
+    } catch (openErr) {}
   });
 
   server.on('error', (err) => {
@@ -411,4 +405,3 @@ function startServer(portToUse) {
 }
 
 startServer(PORT);
-
